@@ -1,10 +1,12 @@
 package si.fri.mag.api;
 
+import org.glassfish.jersey.media.multipart.MultiPartFeature;
 import si.fri.mag.api.controllers.MainController;
 import si.fri.mag.api.controllers.RootController;
 import si.fri.mag.api.controllers.v1.ProjectMetadataController;
 import si.fri.mag.api.mappers.EntityNotFoundMapper;
 import si.fri.mag.api.mappers.ForbiddenExceptionMapper;
+import si.fri.mag.api.mappers.InternalServerErrorExceptionMapper;
 import si.fri.mag.api.mappers.NotFoundExceptionMapper;
 
 import javax.ws.rs.ApplicationPath;
@@ -17,6 +19,8 @@ public class ProjectMetadataApi extends Application {
     @Override
     public Set<Class<?>> getClasses() {
         final Set<Class<?>> resources = new HashSet<Class<?>>();
+        resources.add(MultiPartFeature.class);
+        resources.add(InternalServerErrorExceptionMapper.class);
         resources.add(ForbiddenExceptionMapper.class);
         resources.add(NotFoundExceptionMapper.class);
         resources.add(EntityNotFoundMapper.class);

@@ -18,3 +18,7 @@ kumuluzee:
       url: localhost
       http:
         port: 9005
+    clients:
+      - name: awsStorageClient
+        port: 9001
+        address: localhost

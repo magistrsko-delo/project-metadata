@@ -23,7 +23,7 @@ public class ProjectConverter {
 
     public ProjectEntity toEntityNew(ProjectInput projectInput) {
         ProjectEntity projectEntity = this.toEntity(projectInput);
-        Date createdDate = new Date(System.currentTimeMillis() * 1000);
+        Date createdDate = new Date(System.currentTimeMillis());
         projectEntity.setCreatedAt(createdDate);
         projectEntity.setUpdatedAt(createdDate);
         return projectEntity;
@@ -31,8 +31,7 @@ public class ProjectConverter {
 
     public ProjectEntity toEntityUpdate (ProjectInput projectInput) {
         ProjectEntity projectEntity = this.toEntity(projectInput);
-        projectEntity.setUpdatedAt(new Date(System.currentTimeMillis() * 1000));
-        projectEntity.setProjectId(projectInput.getProjectId());
+        projectEntity.setUpdatedAt(new Date(System.currentTimeMillis()));
 
         return projectEntity;
     }
