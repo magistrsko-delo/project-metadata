@@ -7,6 +7,7 @@ import si.fri.mag.entities.ProjectEntity;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
+import javax.persistence.EntityNotFoundException;
 import javax.persistence.Query;
 import java.util.ArrayList;
 import java.util.List;
@@ -30,6 +31,18 @@ public class ProjectMetadataService {
             projectDTOS.add(projectConverter.toDTO(projectEntity));
         }
         return projectDTOS;
+    }
+
+    public ProjectDTO getProjectMetadata(Integer projectId) {
+
+        ProjectEntity projectEntity = em.find(ProjectEntity.class, projectId);
+
+        if (projectEntity == null) {
+            throw new EntityNotFoundException("Project with id: " + projectId + " does not exist");
+        }
+
+        return projectConverter.toDTO(projectEntity);
+
     }
 
 }

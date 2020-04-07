@@ -1,15 +1,13 @@
 package si.fri.mag.api.controllers.v1;
 
+import jdk.nashorn.internal.objects.annotations.Getter;
 import si.fri.mag.DTO.ProjectDTO;
 import si.fri.mag.api.controllers.MainController;
 import si.fri.mag.services.ProjectMetadataService;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
-import javax.ws.rs.Consumes;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.List;
@@ -28,6 +26,14 @@ public class ProjectMetadataController extends MainController {
     public Response getAllProjectsMetadata() {
         List<ProjectDTO> projectDTOS = projectMetadataService.getAllProjectsMetadata();
         return this.responseOk("", projectDTOS);
+    }
+
+    @GET
+    @Path("{projectId}")
+    public Response getOneProjectMetadata(@PathParam("projectId") Integer projectId) {
+
+        ProjectDTO projectDTO = projectMetadataService.getProjectMetadata(projectId);
+        return this.responseOk("", projectDTO);
     }
 
 }
