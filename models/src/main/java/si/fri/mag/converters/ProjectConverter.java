@@ -32,7 +32,7 @@ public class ProjectConverter {
     public ProjectEntity toEntityUpdate (ProjectInput projectInput) {
         ProjectEntity projectEntity = this.toEntity(projectInput);
         projectEntity.setUpdatedAt(new Date(System.currentTimeMillis()));
-
+        projectEntity.setCreatedAt(projectInput.getCreatedAt());
         return projectEntity;
     }
 

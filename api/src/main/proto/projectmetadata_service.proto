@@ -1,0 +1,37 @@
+syntax = "proto3";
+option java_package = "grpc";
+import "google/protobuf/empty.proto";
+
+service ProjectMetadata {
+  rpc getProject(ProjectIdRequest) returns (ProjectResponse) {};
+  rpc getAllProjects(google.protobuf.Empty) returns (ProjectResponseRepeated) {};
+  rpc updateProject(UpdateProjectRequest) returns (ProjectResponse) {};
+  rpc deleteProject(ProjectIdRequest) returns (ProjectDeleteResponse) {};
+}
+
+message ProjectIdRequest {
+  int32 projectId = 1;
+}
+
+message UpdateProjectRequest {
+  int32 projectId = 1;
+  string thumbnail = 2;
+  string name = 3;
+  int64 createdAt = 4;
+}
+
+message ProjectResponse {
+  int32 projectId = 1;
+  string name = 2;
+  string thumbnail = 3;
+  int64 createdAt = 4;
+  int64 updatedAt = 5;
+}
+
+message ProjectResponseRepeated {
+  repeated ProjectResponse data = 1;
+}
+
+message ProjectDeleteResponse {
+  string message = 1;
+}
