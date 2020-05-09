@@ -7,6 +7,10 @@ kumuluzee:
     base-url: http://localhost:8007
     http:
       port: 8007
+  cors-filter:
+    servlet:
+      allow-generic-http-requests: true
+      allow-origin: "*"
   datasources:
     - jndi-name: jdbc/ProjectDB
       connection-url: jdbc:mysql://mag2020.cd0nfxw2grsa.eu-central-1.rds.amazonaws.com:3306/Project
