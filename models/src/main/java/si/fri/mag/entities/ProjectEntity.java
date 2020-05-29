@@ -1,5 +1,6 @@
 package si.fri.mag.entities;
 
+import org.eclipse.microprofile.opentracing.Traced;
 import si.fri.mag.MainEntity;
 
 import javax.persistence.*;
@@ -17,7 +18,7 @@ import java.sql.Date;
                 resultClass = ProjectEntity.class
         )
 })
-
+@Traced(value = true, operationName = "projectEntityTracing")
 public class ProjectEntity implements MainEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
