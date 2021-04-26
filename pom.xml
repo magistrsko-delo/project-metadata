@@ -27,7 +27,7 @@
         <com.google.code.gson-vesrion>2.8.5</com.google.code.gson-vesrion>
         <jersey-media-multipart-version>2.28</jersey-media-multipart-version>
         <kumuluzee-config.version>1.2.1</kumuluzee-config.version>
-        <commons-io-version>2.6</commons-io-version>
+        <commons-io-version>2.7</commons-io-version>
         <kumuluzee-health.version>2.2.0</kumuluzee-health.version>
         <kumuluzee-opentracing.version>1.3.1</kumuluzee-opentracing.version>
         <kumuluzee-config-mp.version>1.4.0</kumuluzee-config-mp.version>
